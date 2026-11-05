@@ -109,6 +109,17 @@ h1 .it{color:var(--brique-clair);font-size:1.08em}
 .galerie figure{position:relative;aspect-ratio:4/5;border-radius:20px;overflow:hidden;background:#d8d2bb}
 .galerie figcaption{position:absolute;left:10px;bottom:10px;background:var(--creme);color:var(--encre);border-radius:99px;padding:3px 12px;font-size:.8rem;font-weight:500}
 
+/* Questions fréquentes */
+.faq{padding-top:0}
+.faq .liste{max-width:760px}
+.faq details{border-top:1px solid rgba(38,49,31,.25);padding:20px 0}
+.faq details:last-child{border-bottom:1px solid rgba(38,49,31,.25)}
+.faq summary{cursor:pointer;font:700 1.1rem/1.3 var(--titre);letter-spacing:-.01em;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:1.7rem;line-height:1;color:var(--brique);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{margin-top:12px;color:#4b5a43;max-width:40em}
+
 /* Contact */
 .contact{display:grid;gap:32px}
 .contact .btn{font-size:1.1rem;padding:16px 28px}
@@ -187,7 +198,7 @@ footer .wrap{padding-top:24px}
     <div class="wrap">
       <span><b>Depuis 3 ans</b> à Cocody</span>
       <span><b>Livraison gratuite</b> dès 25 000 FCFA d'achat</span>
-      <span><b>Ouvert</b> du lundi au samedi, 8h à 18h</span>
+      <span><b>Ouvert 7 jours sur 7</b>, dimanche 9h à 13h</span>
     </div>
   </div>
 
@@ -277,6 +288,27 @@ footer .wrap{padding-top:24px}
     </div>
   </section>
 
+  <!-- ===== QUESTIONS FRÉQUENTES (ajouter une question = copier un bloc <details>) ===== -->
+  <section id="questions" class="faq">
+    <div class="wrap">
+      <h2>Questions fréquentes</h2>
+      <div class="liste" style="margin-top:32px">
+        <details>
+          <summary>Comment se passe la livraison ?</summary>
+          <p>On livre à Abidjan du lundi au samedi. Vous commandez sur WhatsApp, on confirme l'heure avec vous et on vous livre.</p>
+        </details>
+        <details>
+          <summary>Mes plantes ont-elles besoin de beaucoup de soleil ?</summary>
+          <p>Ça dépend de la plante. La Sansevieria supporte les coins sombres, le Palmier Areca préfère une pièce lumineuse. On vous conseille au moment de la commande.</p>
+        </details>
+        <details>
+          <summary>Comment je paie ?</summary>
+          <p>À la livraison, en espèces ou par Mobile Money.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== RÉALISATIONS ===== -->
   <section id="realisations" style="background:var(--creme2)">
     <div class="wrap">
@@ -286,7 +318,7 @@ footer .wrap{padding-top:24px}
         <!-- LÉGENDES : modifier le texte dans figcaption -->
         <figure><img src="realisation1.jpg" alt="Balcon aménagé avec des plantes" loading="lazy"><figcaption>Balcon</figcaption></figure>
         <figure><img src="realisation2.jpg" alt="Salon décoré de plantes" loading="lazy"><figcaption>Salon</figcaption></figure>
-        <figure><img src="realisation3.jpg" alt="Terrasse de restaurant avec plantes" loading="lazy"><figcaption>Restaurant</figcaption></figure>
+        <figure><img src="realisation3.jpg" alt="Hall d'hôtel décoré de plantes" loading="lazy"><figcaption>Hôtel</figcaption></figure>
         <figure><img src="realisation4.jpg" alt="Jardin de villa" loading="lazy"><figcaption>Jardin de villa</figcaption></figure>
       </div>
     </div>
@@ -303,7 +335,7 @@ footer .wrap{padding-top:24px}
       <div class="infos">
         <div><h3>Adresse</h3>Rue des Jardins, à côté de la pharmacie<br>Cocody Riviera Palmeraie, Abidjan<br>
           <a href="https://www.google.com/maps/search/?api=1&query=Riviera+Palmeraie+Abidjan" target="_blank" rel="noopener">Voir sur la carte</a></div>
-        <div><h3>Horaires</h3>Lundi au samedi : 8h à 18h<br>Dimanche : fermé<br><span class="ouvert" id="ouvert"></span></div>
+        <div><h3>Horaires</h3>Lundi au samedi : 8h à 18h<br>Dimanche : 9h à 13h<br><span class="ouvert" id="ouvert"></span></div>
         <div><h3>Instagram</h3><a data-ig target="_blank" rel="noopener">@vertcocody_abidjan</a></div>
       </div>
     </div>
@@ -336,7 +368,8 @@ document.querySelectorAll("[data-ig]").forEach(function (a) { a.href = "https://
 // Badge "Ouvert maintenant" (heure d'Abidjan = heure UTC)
 (function () {
   var d = new Date(), j = d.getUTCDay(), h = d.getUTCHours() + d.getUTCMinutes() / 60;
-  var ouvert = j >= 1 && j <= 6 && h >= 8 && h < 18;
+  // Lundi à samedi : 8h à 18h. Dimanche : 9h à 13h (à changer ici si les horaires bougent)
+  var ouvert = (j >= 1 && j <= 6 && h >= 8 && h < 18) || (j === 0 && h >= 9 && h < 13);
   var b = document.getElementById("ouvert");
   b.textContent = ouvert ? "Ouvert maintenant" : "Fermé pour le moment";
   if (!ouvert) b.className = "ouvert ferme";
