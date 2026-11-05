@@ -65,6 +65,7 @@ header{position:sticky;top:12px;z-index:20;padding-top:12px}
 .pastille{display:inline-block;border:1px solid rgba(185,199,180,.5);border-radius:99px;padding:4px 16px;font-size:.95rem;margin-bottom:24px}
 .pastille .it{color:var(--brique-clair);font-size:1.15rem}
 h1{font-size:clamp(2.3rem,9.5vw,4.6rem);line-height:.96;margin-bottom:24px}
+h1{text-wrap:balance}
 h1 .it{color:var(--brique-clair);font-size:1.08em}
 .hero p.lead{font-size:1.1rem;color:var(--sauge);max-width:30em;margin-bottom:32px}
 .actions{display:flex;flex-wrap:wrap;gap:12px}
@@ -131,6 +132,7 @@ footer .wrap{padding-top:24px}
   section{padding:104px 0}
   .nav ul{display:flex}
   .hero{padding:168px 0 96px}
+  h1 .it{white-space:nowrap}
   .hero .wrap{grid-template-columns:1.15fr .85fr;align-items:center}
   .pile{margin:0 auto}
   .atouts .wrap{grid-template-columns:repeat(3,1fr);gap:24px}
@@ -184,7 +186,7 @@ footer .wrap{padding-top:24px}
   <div class="atouts">
     <div class="wrap">
       <span><b>Depuis 3 ans</b> à Cocody</span>
-      <span><b>Livraison gratuite</b> dès 30 000 FCFA d'achat</span>
+      <span><b>Livraison gratuite</b> dès 25 000 FCFA d'achat</span>
       <span><b>Ouvert</b> du lundi au samedi, 8h à 18h</span>
     </div>
   </div>
@@ -198,8 +200,8 @@ footer .wrap{padding-top:24px}
         <!-- PRIX : modifier le montant dans <p class="prix"> ET dans data-wa (message WhatsApp) -->
         <article class="carte">
           <div class="ph"><img src="monstera.jpg" alt="Monstera en pot" loading="lazy"></div>
-          <div class="corps"><span class="badge">Intérieur</span><h3>Monstera</h3><p class="detail">Pot moyen</p><p class="prix">15 000 FCFA</p>
-          <a class="btn btn-sm" data-wa="Bonjour Vert Cocody, je voudrais commander une Monstera (15 000 FCFA).">Commander</a></div>
+          <div class="corps"><span class="badge">Intérieur</span><h3>Monstera</h3><p class="detail">Pot moyen</p><p class="prix">18 000 FCFA</p>
+          <a class="btn btn-sm" data-wa="Bonjour Vert Cocody, je voudrais commander une Monstera (18 000 FCFA).">Commander</a></div>
         </article>
         <article class="carte">
           <div class="ph"><img src="sansevieria.jpg" alt="Sansevieria en pot" loading="lazy"></div>
@@ -228,7 +230,7 @@ footer .wrap{padding-top:24px}
         </article>
       </div>
       <!-- LIVRAISON : modifier ici -->
-      <p class="note">Livraison à Abidjan : <b>2 000 FCFA</b>, gratuite dès <b>30 000 FCFA</b> d'achat.</p>
+      <p class="note">Livraison à Abidjan : <b>2 000 FCFA</b>, gratuite dès <b>25 000 FCFA</b> d'achat.</p>
     </div>
   </section>
 
@@ -256,7 +258,7 @@ footer .wrap{padding-top:24px}
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 6h11v10H2zM13 10h4l3 3v3h-7z"/><circle cx="6.500" cy="18.500" r="1.800"/><circle cx="16.500" cy="18.500" r="1.800"/></svg>
           <h3>Livraison à domicile</h3>
           <p>Vos plantes arrivent bien emballées, partout à Abidjan.</p>
-          <p class="prix">2 000 FCFA, gratuite dès 30 000 FCFA</p>
+          <p class="prix">2 000 FCFA, gratuite dès 25 000 FCFA</p>
           <a class="btn" data-wa="Bonjour Vert Cocody, je voudrais me faire livrer des plantes.">Me faire livrer</a>
         </div>
       </div>
@@ -302,7 +304,7 @@ footer .wrap{padding-top:24px}
         <div><h3>Adresse</h3>Rue des Jardins, à côté de la pharmacie<br>Cocody Riviera Palmeraie, Abidjan<br>
           <a href="https://www.google.com/maps/search/?api=1&query=Riviera+Palmeraie+Abidjan" target="_blank" rel="noopener">Voir sur la carte</a></div>
         <div><h3>Horaires</h3>Lundi au samedi : 8h à 18h<br>Dimanche : fermé<br><span class="ouvert" id="ouvert"></span></div>
-        <div><h3>Instagram</h3><a data-ig target="_blank" rel="noopener">@vertcocody</a></div>
+        <div><h3>Instagram</h3><a data-ig target="_blank" rel="noopener">@vertcocody_abidjan</a></div>
       </div>
     </div>
   </section>
@@ -318,7 +320,7 @@ footer .wrap{padding-top:24px}
 /* ====== RÉGLAGES À MODIFIER (un seul endroit) ====== */
 var WHATSAPP = "2250708154263";      // numéro avec indicatif, sans + ni espaces
 var WHATSAPP_AFFICHE = "07 08 15 42 63"; // numéro tel qu'il s'affiche sur le site
-var INSTAGRAM = "vertcocody";        // nom du compte, sans @
+var INSTAGRAM = "vertcocody_abidjan";        // nom du compte, sans @
 var MESSAGE_PAR_DEFAUT = "Bonjour Vert Cocody, je voudrais commander des plantes.";
 /* ================================================== */
 
